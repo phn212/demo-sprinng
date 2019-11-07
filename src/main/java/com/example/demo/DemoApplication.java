@@ -68,7 +68,7 @@ public class DemoApplication {
         String privateKeyString = new String(Base64.encodeBase64((privateKey.getEncoded())));
         // 将公钥和私钥保存到Map
         keyMap.put(0,publicKeyString);  //0表示公钥
-        keyMap.put(1,privateKeyString);  //1表示私钥1
+        keyMap.put(1,privateKeyString);  //1表示私钥
     }
     /**
      * RSA公钥加密
