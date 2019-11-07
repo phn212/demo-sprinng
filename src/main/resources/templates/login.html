@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+    <title>Insert title here</title>  
+</head>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<style>
+    p{
+        font-size:50px
+
+    }
+
+</style>
+
+</head>  
+<body>  
+<div id="app">
+    <form action="/register" method="post">  
+        帐号:<input type="text" name="name">  
+        密码:<input type="password" name="password">  
+        性别:<label><input type="radio" name="sex" value="1">男生</label>
+        <label><input type="radio" name="sex" value="2">女生</label>
+        <input type="submit" value="注册">   
+        <el-button @click="delete()">删除</el-button>
+    </form>  
+    <p>adsdd{{message}}</p>
+    <p >6666{{site}}</p>
+</div>
+<script type="text/javascript">
+
+   var v= new Vue({
+        el: '#app',
+        data: {
+            site:'vue',
+             message:123
+        },
+        created: function () {
+           var s=  this.details();
+
+         },
+        methods: {
+            details: function() {
+                return  this.site + " - 学的不仅是技术，更是梦想！";
+            },
+            delete:function (){
+                $.ajax("/delete",{name:$("#name").val(),password:$("#password").val()},function(data){
+                    var  obj = $.parseJSON(data);
+                    console.log(obj)
+                })
+            }
+
+        }
+    })
+    //v.created();
+</script>
+
+</body>
+</html>

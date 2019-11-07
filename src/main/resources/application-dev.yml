@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: mybatis-service  # 服务名称
+jdbc:  # 数据源链接信息
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/test?useSSL=true&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+  username: root
+  password: phn990504
+mybatis:
+  type-aliases-package: com.example.demo.entity # 别名扫描宝
+  mapper-locations: classpath:mappers/*.xml # 映射文件的路径扫描
